@@ -766,7 +766,6 @@ class TitleState extends MusicBeatState
 					skipIntro();
 					FlxTween.tween(gfDance, {x : 0, y : 0 }, 2 , { ease: FlxEase.quadInOut });
 			}
-			}
 		}
 	}
 
