@@ -188,6 +188,7 @@ class PlayState extends MusicBeatState
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
 	public var camHUD:FlxCamera;
+	public var camEasy:FlxCamera;
 	public var camGame:FlxCamera;
 	public var camOther:FlxCamera;
 	public var luaVpadCam:FlxCamera;
@@ -284,12 +285,15 @@ class PlayState extends MusicBeatState
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = initPsychCamera();
+		camEasy = new FlxCamera();
 		camHUD = new FlxCamera();
 		camOther = new FlxCamera();
 		luaVpadCam = new FlxCamera();
+		camEasy.bgColor.alpha = 0;
 		camHUD.bgColor.alpha = 0;
 		camOther.bgColor.alpha = 0;
 		luaVpadCam.bgColor.alpha = 0;
+		FlxG.cameras.add(camEasy, false);
 		FlxG.cameras.add(camHUD, false);
 		FlxG.cameras.add(camOther, false);
 		FlxG.cameras.add(luaVpadCam, false);
