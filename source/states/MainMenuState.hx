@@ -14,7 +14,7 @@ enum MainMenuColumn {
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '1.0b'; // This is also used for Discord RPC
+	public static var psychEngineVersion:String = '0.7.3'; // This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 	public static var curColumn:MainMenuColumn = CENTER;
 	var allowMouse:Bool = true; //Turn this off to block mouse movement in menus
@@ -27,12 +27,13 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
-		'credits'
+		//#if MODS_ALLOWED 'mods', #end
+		'credits',
+		'options'
 	];
 
-	var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end;
-	var rightOption:String = 'options';
+	var leftOption:String = 'nothing';
+	var rightOption:String = 'nothing';
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -51,14 +52,29 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		var yScroll:Float = 0.25;
+		var yScroll:Float = 0;
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		bg.frames = Paths.getSparrowAtlas('menuBG');
+		bg.animation.addByPrefix('play', 'idle', 24, true);
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
 		bg.screenCenter();
 		add(bg);
+		bg.animation.play('play');
+		bg.scale.set(0.666666, 0.666666);
+		bg.updateHitbox();
+		bg.screenCenter(XY);
+
+		var menutext:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menutext'));
+		menutext.scrollFactor.set(0, 0);
+		menutext.screenCenter();
+		menutext.updateHitbox();
+		menutext.scale.set(0.666666, 0.666666);
+		FlxTween.tween(menutext, {y: menutext.y + 10}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
+	    FlxTween.tween(menutext, {y: menutext.y + 10}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
+		add(menutext);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
@@ -76,20 +92,62 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		for (num => option in optionShit)
-		{
-			var item:FlxSprite = createMenuItem(option, 0, (num * 140) + 90);
-			item.y += (4 - optionShit.length) * 70; // Offsets for when you have anything other than 4 items
-			item.screenCenter(X);
-		}
+		//storymode
+		var menuItem:FlxSprite = new FlxSprite(-100, 300);
+		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[0]);
+		menuItem.animation.addByPrefix('idle', optionShit[0] + ' basic', 24, true);
+		menuItem.animation.addByPrefix('selected', optionShit[0] + ' white', 24, true);
+		menuItem.animation.play('idle');
+		menuItem.updateHitbox();
+		
+		menuItem.antialiasing = ClientPrefs.data.antialiasing;
+		menuItem.scrollFactor.set();
+		menuItems.add(menuItem);
+		return menuItem;
+		FlxTween.tween(menuItem, {x : 50, y : 300 }, 0.6, { ease: FlxEase.quadInOut });
 
-		if (leftOption != null)
-			leftItem = createMenuItem(leftOption, 60, 490);
-		if (rightOption != null)
-		{
-			rightItem = createMenuItem(rightOption, FlxG.width - 60, 490);
-			rightItem.x -= rightItem.width;
-		}
+	  //freeplay 
+		var menuItem:FlxSprite = new FlxSprite(-100, 400);
+		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[1]);
+		menuItem.animation.addByPrefix('idle', optionShit[1] + ' basic', 24, true);
+		menuItem.animation.addByPrefix('selected', optionShit[1] + ' white', 24, true);
+		menuItem.animation.play('idle');
+		menuItem.updateHitbox();
+		
+		menuItem.antialiasing = ClientPrefs.data.antialiasing;
+		menuItem.scrollFactor.set();
+		menuItems.add(menuItem);
+		return menuItem;
+		FlxTween.tween(menuItem, {x : 50, y : 400 }, 0.8, { ease: FlxEase.quadInOut });
+
+	  //credits
+		var menuItem:FlxSprite = new FlxSprite(-100, 500);
+		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[2]);
+		menuItem.animation.addByPrefix('idle', optionShit[2] + ' basic', 24, true);
+		menuItem.animation.addByPrefix('selected', optionShit[2] + ' white', 24, true);
+		menuItem.animation.play('idle');
+		menuItem.updateHitbox();
+		
+		menuItem.antialiasing = ClientPrefs.data.antialiasing;
+		menuItem.scrollFactor.set();
+		menuItems.add(menuItem);
+		return menuItem;
+		FlxTween.tween(menuItem, {x : 50, y : 500 }, 1, { ease: FlxEase.quadInOut });
+
+	  //options
+		var menuItem:FlxSprite = new FlxSprite(-100, 600);
+		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[3]);
+		menuItem.animation.addByPrefix('idle', optionShit[3] + ' basic', 24, true);
+		menuItem.animation.addByPrefix('selected', optionShit[3] + ' white', 24, true);
+		menuItem.animation.play('idle');
+		menuItem.updateHitbox();
+		
+		menuItem.antialiasing = ClientPrefs.data.antialiasing;
+		menuItem.scrollFactor.set();
+		menuItems.add(menuItem);
+		return menuItem;
+		FlxTween.tween(menuItem, {x : 50, y : 600 }, 1.2, { ease: FlxEase.quadInOut });
+		
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		psychVer.scrollFactor.set();
@@ -112,26 +170,11 @@ class MainMenuState extends MusicBeatState
 		#end
 		#end
 
-		addVirtualPad('NONE', 'E');
+		addVirtualPad('NONE', 'NONE');
 
 		super.create();
 
 		FlxG.camera.follow(camFollow, null, 0.15);
-	}
-
-	function createMenuItem(name:String, x:Float, y:Float):FlxSprite
-	{
-		var menuItem:FlxSprite = new FlxSprite(x, y);
-		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_$name');
-		menuItem.animation.addByPrefix('idle', '$name idle', 24, true);
-		menuItem.animation.addByPrefix('selected', '$name selected', 24, true);
-		menuItem.animation.play('idle');
-		menuItem.updateHitbox();
-		
-		menuItem.antialiasing = ClientPrefs.data.antialiasing;
-		menuItem.scrollFactor.set();
-		menuItems.add(menuItem);
-		return menuItem;
 	}
 
 	var selectedSomethin:Bool = false;
@@ -258,10 +301,7 @@ class MainMenuState extends MusicBeatState
 				{
 					selectedSomethin = true;
 					FlxG.mouse.visible = false;
-
-					if (ClientPrefs.data.flashing)
-						FlxFlicker.flicker(magenta, 1.1, 0.15, false);
-
+					
 					var item:FlxSprite;
 					var option:String;
 					switch(curColumn)
@@ -317,7 +357,7 @@ class MainMenuState extends MusicBeatState
 						if(memb == item)
 							continue;
 
-						FlxTween.tween(memb, {alpha: 0}, 0.4, {ease: FlxEase.quadOut});
+						FlxTween.tween(memb, {x : -800}, 1, {ease: FlxEase.quadInOut});
 					}
 				}
 				else CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
