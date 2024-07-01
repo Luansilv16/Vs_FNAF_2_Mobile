@@ -1,0 +1,24 @@
+{
+	"songs": [
+		["join-the-band", "none", [255, 255, 255]],
+		["hop-to-it", "none", [255, 255, 255]],
+		["pecking-order", "none", [255, 255, 255]],
+		["cerberus", "none", [255, 255, 255]]
+	],
+
+	"weekCharacters": [
+		"dad",
+		"toy",
+		"gf"
+	],
+	"weekBackground": "toy",
+
+	"storyName": "Something New !",
+	"weekBefore": "tutorial",
+	"difficulties": "Hard",
+	"weekName": "Week T",
+	"startUnlocked": true,
+
+	"hideStoryMode": false,
+	"hideFreeplay": false
+}

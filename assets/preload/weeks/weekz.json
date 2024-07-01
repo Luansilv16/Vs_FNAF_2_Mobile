@@ -1,0 +1,98 @@
+{
+	"storyName": "the",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "weekx",
+	"difficulties": "Hard",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"helium",
+			"none",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"gamer-fazbear",
+			"none",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"challeng-fredd",
+			"none",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"freddy-fartbear",
+			"none",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"welcome",
+			"none",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"nightshift",
+			"none",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"flashing-lights",
+			"none",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"shadows",
+			"none",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"enigma",
+			"none",
+			[
+				0,
+				0,
+				0
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "Week Z"
+}
