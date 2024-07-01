@@ -136,7 +136,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.ID = 0;
 			//menuItem.screenCenter(X);
 			menuItems.add(menuItem);
-			var scr:Float = 0;
+			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
 			menuItem.scrollFactor.set(0, scr);
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
@@ -156,7 +156,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.ID = 1;
 			//menuItem.screenCenter(X);
 			menuItems.add(menuItem);
-			var scr:Float = 0;
+			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 1;
 			menuItem.scrollFactor.set(0, scr);
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
@@ -176,7 +176,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.ID = 2;
 			//menuItem.screenCenter(X);
 			menuItems.add(menuItem);
-			var scr:Float = 0;
+			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 2;
 			menuItem.scrollFactor.set(0, scr);
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
@@ -196,7 +196,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.ID = 3;
 			//menuItem.screenCenter(X);
 			menuItems.add(menuItem);
-			var scr:Float = 0;
+			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 3;
 			menuItem.scrollFactor.set(1, scr);
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
