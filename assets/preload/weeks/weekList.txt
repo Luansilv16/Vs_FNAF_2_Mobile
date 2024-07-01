@@ -1,4 +1,3 @@
-weekt
-weekw
-weekx
-weekz
+week1
+week2
+week3
