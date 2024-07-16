@@ -113,7 +113,7 @@ class FreeplayState extends MusicBeatState
 		{
 			var songText:Alphabet = new Alphabet(0, (70 * i) + 320, songs[i].songName, true);
 			songText.isMenuItemCenter = true;
-			songText.targetY = i - curSelected;
+			songText.targetY = i;
 			grpSongs.add(songText);
 
 			var maxWidth = 980;
@@ -121,7 +121,6 @@ class FreeplayState extends MusicBeatState
 			{
 				songText.scaleX = maxWidth / songText.width;
 			}
-			songText.snapToPosition();
 
 			Paths.currentModDirectory = songs[i].folder;
 			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
