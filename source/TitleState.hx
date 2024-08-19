@@ -673,13 +673,13 @@ class TitleState extends MusicBeatState
 					#if PSYCH_WATERMARKS
 					addMoreText('Funking');
 					#end
-					case 4:
+				case 4:
 					#if PSYCH_WATERMARKS
 					addMoreText('Here!');
 					#end
 				case 5:
 					deleteCoolText();
-					case 6:
+				case 6:
 					#if PSYCH_WATERMARKS
 					createCoolText(['The']);
 					#end
@@ -691,13 +691,13 @@ class TitleState extends MusicBeatState
 					#if PSYCH_WATERMARKS
 					addMoreText('Modders');
 					#end
-					case 9:
+				case 9:
 					#if PSYCH_WATERMARKS
-					addMoreText('Presents');
+				        addMoreText('Presents');
 					#end
-					case 10:
+			        case 10:
 					deleteCoolText();
-					case 11:
+				case 11:
 					#if PSYCH_WATERMARKS
 					createCoolText(['One']);
 					#end
@@ -705,17 +705,17 @@ class TitleState extends MusicBeatState
 					#if PSYCH_WATERMARKS
 					addMoreText('Of the');
 					#end
-					case 13:
+				case 13:
 					#if PSYCH_WATERMARKS
 					addMoreText('Best mods');
 					#end
-					case 14:
+				case 14:
 					#if PSYCH_WATERMARKS
 					addMoreText('Of all time');
 					#end
-					case 15:
+				case 15:
 					deleteCoolText();
-					case 16:
+				case 16:
 					#if PSYCH_WATERMARKS
 					createCoolText(['Made from']);
 					#end
@@ -727,42 +727,44 @@ class TitleState extends MusicBeatState
 					#if PSYCH_WATERMARKS
 					addMoreText('Horror game');
 					#end
-					case 19:
+				case 19:
 					#if PSYCH_WATERMARKS
 					addMoreText('FNaF');
 					#end
-					case 20:
+				case 20:
 					deleteCoolText();
-					case 21:
+				case 21:
 					deleteCoolText();
 				case 22:
+					deleteCoolText();
+				case 23:
 					createCoolText([curWacky[0]]);
 				// credTextShit.visible = true;
-				case 23:
+				case 24:
 					addMoreText(curWacky[1]);
 
-				case 24:
+				case 25:
 					addMoreText(curWacky[2]);
 				// credTextShit.text += '\nlmao';
-				case 25:
+				case 26:
 					deleteCoolText();
 				// credTextShit.visible = false;
 				// credTextShit.text = "Friday";
 				// credTextShit.screenCenter();
-				case 26:
+				case 27:
 					addMoreText('FNF');
 				// credTextShit.visible = true;
-				case 27:
+				case 28:
 					addMoreText('Vs');
 				// credTextShit.text += '\nNight';
-				case 28:
-					addMoreText('FNaF'); // credTextShit.text += '\nFunkin';
 				case 29:
+					addMoreText('FNaF'); // credTextShit.text += '\nFunkin';
+				case 30:
 						deleteCoolText();
 						addMoreText('FNF');
 						addMoreText('Vs');
 						addMoreText('FNaF 2');
-				case 30:
+				case 31:
 					skipIntro();
 					FlxTween.tween(gfDance, {x : 0, y : 0 }, 2 , { ease: FlxEase.quadInOut });
 			}
